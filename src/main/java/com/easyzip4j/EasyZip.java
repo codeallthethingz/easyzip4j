@@ -13,7 +13,8 @@ import org.apache.log4j.Logger;
 public class EasyZip {
 	private static final Logger log = Logger.getLogger(EasyZip.class);
 
-	public static void zip(String pSrcFolder, String pZipFile) throws Exception {
+	public static void zip(String pSrcFolder, String pZipFile)
+			throws IOException {
 		EasyZip.zip(pSrcFolder, pZipFile, new EasyZipParameters());
 	}
 
