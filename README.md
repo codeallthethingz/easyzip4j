@@ -6,9 +6,9 @@ single line directory zipping, supports war type zipping where the root folder i
 Usage
 =====
 
-EasyZip.zip("./folderToZip", "./myZipFile.zip");
+    EasyZip.zip("./folderToZip", "./myZipFile.zip");
 
 OR 
 
-EasyZip.zip("./folderToZip", "./myZipFile.zip", 
-  			new EasyZipParameters().setZipFolderContentsNotFolder(true));
+    EasyZip.zip("./folderToZip", "./myZipFile.zip", 
+        new EasyZipParameters().setZipFolderContentsNotFolder(true));
