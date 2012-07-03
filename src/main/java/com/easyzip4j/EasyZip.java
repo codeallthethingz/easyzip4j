@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.io.IOUtils;
@@ -98,4 +100,22 @@ public class EasyZip {
 			}
 		}
 	}
+
+	public static InputStream getInputStreamForEntry(String pZip,
+			String pEntryName) throws IOException {
+		ZipFile zipFile = new ZipFile(pZip);
+		return zipFile.getInputStream(zipFile.getEntry(pEntryName));
+	}
+
+	public static String getStringForEntry(String pZip, String pEntryName)
+			throws IOException {
+		InputStream inputStreamForEntry = null;
+		try {
+			inputStreamForEntry = getInputStreamForEntry(pZip, pEntryName);
+			return IOUtils.toString(inputStreamForEntry);
+		} finally {
+			IOUtils.closeQuietly(inputStreamForEntry);
+		}
+	}
+
 }

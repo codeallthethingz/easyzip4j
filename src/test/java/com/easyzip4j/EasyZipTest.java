@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,5 +56,22 @@ public class EasyZipTest {
 		assertEquals("subfolder/subfolderfull/file3.txt", next(in));
 		assertEquals("subfolder/subfolderfull/something.txt", next(in));
 		assertEquals("subfolderempty/", next(in));
+	}
+
+	@Test
+	public void testGetStringForEntry() throws Exception {
+		EasyZip.zip(FOLDER, ZIP,
+				new EasyZipParameters().setZipFolderContentsNotFolder(true));
+		assertEquals("something 3!", EasyZip
+				.getStringForEntry(ZIP,
+						"subfolder/subfolderfull/file3.txt"));
+	}
+	@Test
+	public void testGetInputStreamForEntry() throws Exception {
+		EasyZip.zip(FOLDER, ZIP,
+				new EasyZipParameters().setZipFolderContentsNotFolder(true));
+		assertEquals("something 3!", IOUtils.toString(EasyZip
+				.getInputStreamForEntry(ZIP,
+						"subfolder/subfolderfull/file3.txt")));
 	}
 }
