@@ -8,7 +8,12 @@ Usage
 
     EasyZip.zip("./folderToZip", "./myZipFile.zip");
 
-OR 
+Or
 
     EasyZip.zip("./folderToZip", "./myZipFile.zip", 
         new EasyZipParameters().setZipFolderContentsNotFolder(true));
+   
+And
+        
+    String fileContents = EasyZip.getStringForEntry("myZipFile.zip",
+		"subfolder/subfolderfull/file3.txt");
