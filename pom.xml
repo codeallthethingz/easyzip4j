@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>easyzip4j</groupId>
 	<artifactId>easyzip4j</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<build>
 		<plugins>
 			<plugin>
